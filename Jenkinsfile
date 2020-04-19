@@ -12,5 +12,11 @@ pipeline {
       }
     }
 
+    stage('Deploy') {
+      steps {
+        sh 'rsync -avz -e "ssh" ./dist/my-dream-app/* root@167.71.228.123:/var/www/html/'
+      }
+    }
+
   }
 }
